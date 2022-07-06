@@ -13,7 +13,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.inMemoryAuthentication()
-                .withUser("user").password("{noop}password").roles("USER");
+                .withUser("SomeUser").password("{noop}SomePassword").roles("USER");
     }
 
     @Override
