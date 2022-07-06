@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class UrlResponseDto {
-    String url;
+    private String url;
 }

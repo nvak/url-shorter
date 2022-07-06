@@ -23,12 +23,12 @@ public class UrlController {
     }
 
     @PostMapping
-    public UrlResponseDto getUrl(@RequestBody UrlRequestDto request){
+    public UrlResponseDto getUrl(@RequestBody UrlRequestDto request) {
         return mapper.toShortUrlDto(urlService.getShortUrl(mapper.toModel(request)));
     }
 
     @GetMapping("/{request}")
-    public UrlResponseDto returnFullUrl(@PathVariable String request){
+    public UrlResponseDto returnFullUrl(@PathVariable String request) {
         return mapper.toLongUrlDto(urlService.getFullUrl(request));
     }
 }

@@ -18,9 +18,9 @@ import org.hibernate.Hibernate;
 public class Url {
     @Id
     @Column(name = "long_url")
-    String longUrl;
+    private String longUrl;
     @Column(name = "short_url")
-    String shortUrl;
+    private String shortUrl;
 
     @Override
     public boolean equals(Object o) {
