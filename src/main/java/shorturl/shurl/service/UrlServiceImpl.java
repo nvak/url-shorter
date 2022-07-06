@@ -16,12 +16,12 @@ public class UrlServiceImpl implements UrlService {
 
     @Override
     public Url getShortUrl(Url longUrl) {
-        if (!UrlValidator.validate(longUrl)){
+        if (!UrlValidator.validate(longUrl)) {
             longUrl.setShortUrl("Invalid url");
             return longUrl;
         }
         Url url = checkUrlInBase(longUrl);
-        if (url== null) {
+        if (url == null) {
             url = repository.save(ShortenerUtil.toShortUrl(longUrl));
         }
         return url;

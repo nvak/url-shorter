@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class UrlRequestDto {
-    String longUrl;
+    private String longUrl;
 }
