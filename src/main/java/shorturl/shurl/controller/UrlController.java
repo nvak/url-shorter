@@ -24,11 +24,11 @@ public class UrlController {
 
     @PostMapping
     public UrlResponseDto getUrl(@RequestBody UrlRequestDto request){
-        return mapper.toDto(urlService.saveAndShortUrl(mapper.toModel(request)));
+        return mapper.toShortUrlDto(urlService.getShortUrl(mapper.toModel(request)));
     }
 
     @GetMapping("/{request}")
     public UrlResponseDto returnFullUrl(@PathVariable String request){
-        return mapper.toDto(urlService.encodeUrl(request));
+        return mapper.toLongUrlDto(urlService.getFullUrl(request));
     }
 }

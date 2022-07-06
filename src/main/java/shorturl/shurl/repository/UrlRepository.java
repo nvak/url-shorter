@@ -7,4 +7,5 @@ import shorturl.shurl.model.Url;
 @Repository
 public interface UrlRepository extends JpaRepository<Url,Long> {
     Url getByShortUrl(String shortUrl);
+    Url getByLongUrl(String longUrl);
 }
