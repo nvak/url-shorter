@@ -1,6 +1,7 @@
 package shorturl.shurl.service;
 
 import org.springframework.stereotype.Service;
+import shorturl.shurl.exception.DataProcessingException;
 import shorturl.shurl.model.Url;
 import shorturl.shurl.repository.UrlRepository;
 import shorturl.shurl.util.ShortenerUtil;
@@ -29,7 +30,8 @@ public class UrlServiceImpl implements UrlService {
 
     @Override
     public Url getFullUrl(String path) {
-        return repository.getByShortUrl("http://localhost:8080/" + path);
+        return repository.getByShortUrl("http://localhost:8080/" + path).orElseThrow(
+                () -> new DataProcessingException("Invalid url"));
     }
 
     private Url checkUrlInBase(Url longUrl) {
