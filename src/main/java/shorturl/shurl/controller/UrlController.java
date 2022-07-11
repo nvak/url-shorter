@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 import shorturl.shurl.dto.UrlRequestDto;
 import shorturl.shurl.dto.UrlResponseDto;
 import shorturl.shurl.service.UrlService;
@@ -28,7 +29,9 @@ public class UrlController {
     }
 
     @GetMapping("/{request}")
-    public UrlResponseDto returnFullUrl(@PathVariable String request) {
-        return mapper.toLongUrlDto(urlService.getFullUrl(request));
+    public RedirectView returnFullUrl(@PathVariable String request) {
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl(urlService.getFullUrl(request).getLongUrl());
+        return redirectView;
     }
 }
