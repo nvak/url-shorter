@@ -34,7 +34,7 @@ You will receive short url as Json.
 ```
 {"url": "YOUR_SHORT_URL" }
 ```
-2. Send GET or past in browser your short url and receive full url as Json
+2. Past in browser your short url and you will be forwarded to full url
 
 Or u can use postman for sending and receiving requests
 
